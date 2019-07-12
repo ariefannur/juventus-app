@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:juventus_app/home/home_team.dart';
+import 'package:juventus_app/home/live.dart';
 import 'package:juventus_app/home/news.dart';
 
 class Home extends StatefulWidget{
@@ -28,7 +29,7 @@ class HomeState extends State<Home>{
         children: <Widget>[
             HomeTeam(),
             News(),
-              Icon(Icons.directions_bike),
+              Live(),
               Icon(Icons.directions_bike),
         ],
       ),

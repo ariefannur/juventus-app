@@ -73,7 +73,15 @@ class HomeTeam extends StatelessWidget{
                     scrollDirection: Axis.horizontal,
                     itemCount: 6,
                     itemBuilder: (BuildContext context, int pos){
-                      return ItemPlayer();
+                      return GestureDetector(
+                        child:  ItemPlayer(),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DetailPlayer()),
+                          );
+                        },
+                      );
                     },
                 ),
               ) 
@@ -103,7 +111,15 @@ class HomeTeam extends StatelessWidget{
                     scrollDirection: Axis.horizontal,
                     itemCount: 6,
                     itemBuilder: (BuildContext context, int pos){
-                      return ItemPlayer();
+                      return GestureDetector(
+                        child:  ItemPlayer(),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DetailPlayer()),
+                          );
+                        },
+                      );
                     },
                 ),
               ) 
@@ -133,7 +149,15 @@ class HomeTeam extends StatelessWidget{
                     scrollDirection: Axis.horizontal,
                     itemCount: 6,
                     itemBuilder: (BuildContext context, int pos){
-                      return ItemPlayer();
+                      return GestureDetector(
+                        child:  ItemPlayer(),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => DetailPlayer()),
+                          );
+                        },
+                      );
                     },
                 ),
               ) 
@@ -154,7 +178,7 @@ class ItemPlayer extends StatelessWidget{
       width: 150,
       child: Stack(
         children: <Widget>[
-          Text("12", style:TextStyle(fontFamily:'Juventus', color:Colors.white24, fontSize:55)),
+          Text("7", style:TextStyle(fontFamily:'Juventus', color:Colors.white24, fontSize:55)),
           Image.asset("assets/players/ronaldo.png", width: 120, height: 170,),
           Positioned(
             bottom: 0.0,
