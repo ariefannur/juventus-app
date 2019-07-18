@@ -10,6 +10,8 @@ flutter run
 
 Sample Juventus mobile app inspired design by Ahmad Bahrori @rygrid
 
+### The App
+<img src="https://github.com/ariefannur/juventus-app/blob/master/assets/preview/juventus%20app%20prview.gif" height="550em" />
 
 Preview
 
