@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:juventus_app/home/home.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
+import 'package:juventus_app/model/player.dart';
 
 
 class DetailPlayer extends StatefulWidget{
+  final Player player;
+  DetailPlayer({this.player});
   @override
   State<StatefulWidget> createState() => DetailPlayerState();
 
@@ -38,16 +41,16 @@ class DetailPlayerState extends State<DetailPlayer>{
                 children: <Widget>[
                   Stack(
                     children: <Widget>[
-                      Text("7",  style:TextStyle(color:Colors.white24, fontFamily:'Juventus', fontSize: 80)),
+                      Text(widget.player.number,  style:TextStyle(color:Colors.white24, fontFamily:'Juventus', fontSize: 80)),
                       Padding(
                         padding: EdgeInsets.only(top: 40),
                         child:Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                            Text("Cristiano",  style:TextStyle(color:Colors.white, fontSize: 35)),
-                            Text("Ronaldo",  style:TextStyle(color:Colors.white, fontSize: 35)),
-                            Text("Forward",  style:TextStyle(color:Colors.yellow, fontSize: 24)),
+                            Text(widget.player.name,  style:TextStyle(color:Colors.white, fontSize: 35)),
+                            Text(widget.player.lastname,  style:TextStyle(color:Colors.white, fontSize: 35)),
+                            Text(getPosition(widget.player.position),  style:TextStyle(color:Colors.yellow, fontSize: 24)),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +88,7 @@ class DetailPlayerState extends State<DetailPlayer>{
                       Align(
                         alignment: Alignment.topRight,
                         child: Padding(padding: EdgeInsets.only(top: 16, left: 20), child:
-                          Image.asset("assets/players/ronaldo-side.png", width: 300, height: 350,)
+                          Image.asset(widget.player.imgSide, width: 300, height: 350,)
                         )
                       )
      
@@ -129,6 +132,18 @@ class DetailPlayerState extends State<DetailPlayer>{
         ),
       ),
     );
+  }
+
+  String getPosition(Position position){
+    if(position == Position.DEFENDER){
+      return "DEFENDER";
+    }else if(position == Position.MIDFIELDER){
+      return "MIDFIELDER";
+    }else if(position == Position.FORWARD){
+      return "FORWARD";
+    }else{
+      return "KEEPER";
+    }
   }
 
 }

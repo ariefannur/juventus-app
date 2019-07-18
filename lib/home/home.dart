@@ -29,8 +29,9 @@ class HomeState extends State<Home>{
         children: <Widget>[
             HomeTeam(),
             News(),
-              Live(),
-              Icon(Icons.directions_bike),
+            Live(liveType: LiveType.LIVE_SCORE),
+            Live(liveType: LiveType.STATISTIK),
+            
         ],
       ),
     );

@@ -22,7 +22,7 @@ class NewsState extends State<News>{
                 itemBuilder: buildItemListNews,
                 itemCount: 3,
                 ),
-                height: 250,
+                height: 300,
 
             ),
             Container(
@@ -74,7 +74,7 @@ class NewsState extends State<News>{
               Container(
                 width: 105,
                 height: 70,
-                color: Colors.white,
+                child: Image.asset("assets/news/batch_douglas_costa11775267237_DB_0207_103F6C463175962A5C350854F6FD77FD.JPG"),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +109,7 @@ class NewsState extends State<News>{
       width: MediaQuery.of(context).size.width * 0.85,
       padding: EdgeInsets.only(left: 14, right: 14),
         child:Column(children: <Widget>[
-          Container(height: 170, color: Colors.white,),
+          Container(child:Image.asset("assets/news/chiellini_atalanta-juve_261218.jpg", fit: BoxFit.cover,) ),
           Text("Chiellini praises Juve composure despite dropped points", overflow: TextOverflow.ellipsis, maxLines:2, style:TextStyle(fontFamily:'Oswald', color: Colors.white, fontSize: 22))
         ]
       )

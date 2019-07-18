@@ -1,10 +1,27 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Live extends StatefulWidget{
+  final LiveType liveType;
+  Live({this.liveType});
+
   @override
   State<StatefulWidget> createState() => LiveState();
 
 }
+
+enum LiveType{
+  LIVE_SCORE,
+  STATISTIK
+}
+
+class Progress{
+  final double prcentA;
+  final double prcentB;
+  final String title;
+  Progress({this.prcentA, this.prcentB, this.title});
+}
+
 
 class LiveState extends State<Live>{
   @override
@@ -16,8 +33,8 @@ class LiveState extends State<Live>{
           children: <Widget>[
             scoreTop(),
             tabScore(),
-            posession(),
-            timelineStatistik()
+            posession(Progress(prcentA: 50.9, prcentB: 49.1, title: "Posession")),
+            widget.liveType == LiveType.LIVE_SCORE ? timelineScore() : timelineStatistik()
 
           ],
         )
@@ -63,7 +80,7 @@ class LiveState extends State<Live>{
     );
   }
 
-  Widget posession(){
+  Widget posession(Progress progress){
     return Padding(
       padding: EdgeInsets.only(top: 16, bottom: 16),
       child:Column(
@@ -71,9 +88,9 @@ class LiveState extends State<Live>{
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
            children: <Widget>[
-            Text("49,5%", style:TextStyle(color:Colors.white, fontFamily:'Oswald',fontSize: 16)),
-            Text("Possession", style:TextStyle(color:Colors.white, fontFamily:'Oswald', fontSize: 16)),
-            Text("50,1%", style:TextStyle(color:Colors.white, fontFamily:'Oswald', fontSize: 16)),
+            Text(progress.prcentA.toString()+"%", style:TextStyle(color:Colors.white, fontFamily:'Oswald',fontSize: 16)),
+            Text(progress.title, style:TextStyle(color:Colors.white, fontFamily:'Oswald', fontSize: 16)),
+            Text(progress.prcentB.toString()+"%", style:TextStyle(color:Colors.white, fontFamily:'Oswald', fontSize: 16)),
            ]
         ),
         Padding(
@@ -103,19 +120,33 @@ class LiveState extends State<Live>{
   Widget timelineStatistik(){
     return Column(
       children: <Widget>[
-        itemTimeline(),
-        itemTimeline(),
-        itemTimeline(),
-        itemTimeline(),
+
+         posession(Progress(prcentA: 50.9, prcentB: 49.1, title: "Posession")),
+          posession(Progress(prcentA: 50.9, prcentB: 49.1, title: "Posession")),
+           posession(Progress(prcentA: 50.9, prcentB: 49.1, title: "Posession")),
+            posession(Progress(prcentA: 50.9, prcentB: 49.1, title: "Posession")),
+      ],
+    );
+  }
+
+  Widget timelineScore(){
+    return Column(
+      children: <Widget>[
+        itemTimeline(true, 55, "bola teman"),
+        itemTimeline(false, 55, "bola teman"),
+        itemTimeline(true, 55, "bola teman"),
+        itemTimeline(false, 55, "bola teman"),
         
       ],
     );
   }
 
-  Widget itemTimeline(){
-    return Container(
-          height: 80,
-          child:Stack(
+  Widget dotLine(){
+    return 
+    Flexible(
+      flex: 2,
+      child:Stack(
+      alignment: Alignment.center,
           children: <Widget>[
             Align(
               alignment: Alignment.center,
@@ -138,7 +169,51 @@ class LiveState extends State<Live>{
               )
             )
           ]
+      )
+          );
+  }
+
+  Widget itemTimeline(bool isRight, int time, String text){
+    return Container(
+          height: 80,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(
+              child:Container(
+                color: Colors.black ,
+                child: !isRight ? Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                      Padding(padding:EdgeInsets.only(left: 16),child:Text(time.toString()+"' \n"+text, textAlign: TextAlign.right, style:TextStyle(color:Colors.white))),
+                    
+                  ],
+                ): Row(),
+              ),flex: 15,
+              )
+              ,
+             dotLine(),
+              Expanded(
+              child:Container(
+                color: Colors.black,
+                child: isRight ? Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                      Padding(padding:EdgeInsets.only(right: 16),child:Text(time.toString()+"' \n"+text, textAlign: TextAlign.right, style:TextStyle(color:Colors.white))),
+                    
+                  ],
+                      
+                ): Row(),
+              ), flex: 15,
+              ),
+            ],
           )
+          
+          
         );
   }
 
