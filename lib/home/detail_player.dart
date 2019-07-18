@@ -117,7 +117,7 @@ class DetailPlayerState extends State<DetailPlayer>{
             ),
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 ItemStatistik(),
                 ItemStatistik(),
@@ -168,6 +168,7 @@ class StateItemStatistik extends State<ItemStatistik>{
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 110,
       padding: EdgeInsets.all(10),
       child: Column(
         mainAxisSize: MainAxisSize.min,

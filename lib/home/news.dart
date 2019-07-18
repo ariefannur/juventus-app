@@ -81,7 +81,7 @@ class NewsState extends State<News>{
                 children: <Widget>[
                   Container(
                     padding: EdgeInsets.only(left: 10),
-                    width: 250,
+                    width: 230,
                     child:
                          Text("Douglas Costa: \"We make the difference in the key moments\"",  overflow: TextOverflow.ellipsis, maxLines:2, style:TextStyle(fontFamily:'Oswald', color: Colors.white, fontSize: 16))
                   ),

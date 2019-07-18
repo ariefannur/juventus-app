@@ -132,10 +132,10 @@ class LiveState extends State<Live>{
   Widget timelineScore(){
     return Column(
       children: <Widget>[
-        itemTimeline(true, 55, "bola teman"),
-        itemTimeline(false, 55, "bola teman"),
-        itemTimeline(true, 55, "bola teman"),
-        itemTimeline(false, 55, "bola teman"),
+        itemTimeline(true, 55, "A great cross by Cancelo from the left finds..."),
+        itemTimeline(false, 66, "Goal!!, by Mandzukic"),
+        itemTimeline(true, 70, "Bentancur lets fly with an effort outside the box..."),
+        itemTimeline(false, 80, "CLOSE! Ronaldo's strike from distance flies just... over the crossbar"),
         
       ],
     );
