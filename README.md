@@ -1,6 +1,6 @@
 # juventus_app
 
-Juventus mobile apps
+Football Team Apps (Juventus Fc)
 
 ## Getting Started
 ```
